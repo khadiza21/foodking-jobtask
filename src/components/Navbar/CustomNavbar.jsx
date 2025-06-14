@@ -12,13 +12,18 @@ const CustomNavbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
+
             if (currentScrollY > 0) {
                 setShowNavbar(true);
             }
+
             setBgWhite(currentScrollY > 100);
+
             setLastScrollY(currentScrollY);
         };
+
         window.addEventListener('scroll', handleScroll);
+
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -30,8 +35,8 @@ const CustomNavbar = () => {
                     initial={{ y: -80, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -80, opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className={`navbar fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${bgWhite ? 'bg-white shadow-lg' : 'bg-cover bg-center bg-no-repeat'
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className={`navbar fixed top-0 left-0 right-0 z-50 transition-all ease-in-out transition-colors duration-500 ${bgWhite ? 'bg-white shadow-lg' : 'bg-cover bg-center bg-no-repeat'
                         }`}
                     style={{
                         backgroundImage: !bgWhite ? `url(${bgImage})` : 'none',
