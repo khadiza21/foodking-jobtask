@@ -1,24 +1,29 @@
 import { useEffect, useState } from 'react';
 import bgImage from '../../assets/hero-bg-3.jpg';
 import pizzaImage from '../../assets/pizza-2.png';
+import pizzaImage1 from '../../assets/pizza.png';
 import { motion, AnimatePresence } from "framer-motion";
 import Button from '../Button/Button';
+import { ArrowRightIcon } from '@heroicons/react/24/solid';
 
 const HeroBanner = () => {
     const slides = [
         {
+            id: 1,
             title: "SUPER DELICIOUS PIZZA",
             subtitle: "Star Your Order Just Only $25.00",
             button: "Order Now",
             image: pizzaImage,
         },
         {
+            id: 2,
             title: "HOT & FRESH TASTE",
             subtitle: "Grab the Best Pizza in Town",
             button: "Get Yours",
-            image: pizzaImage,
+            image: pizzaImage1,
         },
         {
+            id: 3,
             title: "CHEESY PERFECTION",
             subtitle: "Melt in Your Mouth Goodness",
             button: "Try Today",
@@ -44,57 +49,77 @@ const HeroBanner = () => {
 
     const imageVariants = {
         initial: { rotate: 0 },
-        animate: { rotate: 360, transition: { duration: 5, ease: "linear", repeat: Infinity } },
+        animate: { rotate: 360, transition: { duration: 15, ease: "linear", repeat: Infinity } },
     };
 
     return (
         <>
             <div
-                className="w-full h-[0.5px]"
-                style={{ backgroundColor: 'rgba(241, 20, 20, 0.01)' }}
-            />
-
-            <div
                 className="w-full h-screen bg-cover bg-center flex items-center justify-center"
                 style={{ backgroundImage: `url(${bgImage})` }}
             >
-                <div className="max-w-7xl w-full mx-auto px-4 grid grid-cols-1 md:grid-cols-2 items-center">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={index + "text"}
-                            variants={variants}
-                            initial="initial"
-                            animate="animate"
-                            exit="exit"
-                            className="text-white space-y-4"
-                        >
-                            <h1 className="text-5xl font-bold leading-tight">{slides[index].title}</h1>
-                            <p className="text-lg">{slides[index].subtitle}</p>
-                            <Button className="bg-yellow-400 text-black hover:bg-yellow-300">
-                                {slides[index].button}
-                            </Button>
-                        </motion.div>
-                    </AnimatePresence>
+                <div className="max-w-7xl w-full mx-auto px-4 grid grid-cols-1 md:grid-cols-2 items-center   ">
 
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={index + "img"}
-                            variants={variants}
-                            initial="initial"
-                            animate="animate"
-                            exit="exit"
-                            className="flex justify-center mt-8 md:mt-0"
-                        >
-                            <motion.img
-                                src={slides[index].image}
-                                alt="Pizza"
-                                className="w-80 h-80 object-contain"
-                                variants={imageVariants}
-                                animate="animate"
+                    <div className="col-xl-4 col-lg-4 " style={{ overflow: 'hidden' }}>
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={index + "text"}
+                                variants={variants}
                                 initial="initial"
-                            />
-                        </motion.div>
-                    </AnimatePresence>
+                                animate="animate"
+                                exit="exit"
+                                className="text-white space-y-4"
+                            >
+
+                                <h1 class="text-[100px] font-bold leading-none text-white font-barlow animate-fadeInUp delay-[0.4s]">
+                                    {slides[index].title}
+                                </h1>
+                                <p class="text-2xl text-white font-barlow mt-4 animate-fadeInUp delay-[0.8s]">
+                                    {slides[index].subtitle}
+                                </p>
+                                <div class="hero-button mt-6">
+
+
+
+                                    <button className="relative overflow-hidden px-14 py-4 font-semibold text-black bg-white border border-yellow-500  group transition-colors duration-500">
+                                        <div className='flex items-center gap-2'><span className="relative z-10 font-bold">{slides[index].button}</span><ArrowRightIcon className="w-5 h-5" /></div>
+                                        <span className="absolute inset-0 bg-yellow-400 scale-x-0 scale-y-0 group-hover:scale-100 transition-transform duration-500 ease-in-out origin-center opacity-100 z-0"></span>
+                                    </button>
+
+
+
+
+                                </div>
+                                <div className='flex items-center gap-5 font-semibold'>
+                                    <span className=' font-barlow '>{slides[index].id}</span> <hr className='w-10/100  font-barlow font-sm-bold' /> <span className=' font-barlow '>/ 3</span>
+
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+
+                    <div style={{ marginBottom: '-250px' }} className='col-xl-7 col-lg-7  overflow-hidden relative'>
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={index + "img"}
+                                variants={variants}
+                                initial="initial"
+                                animate="animate"
+                                exit="exit"
+                                className="flex justify-center items-center mt-8 md:mt-0 h-[120vh]"
+                            >
+                                <motion.img
+                                    src={slides[index].image}
+                                    alt="Pizza"
+                                    className="w-full h-auto max-h-[150vh] object-cover object-top"
+                                    variants={imageVariants}
+                                    animate="animate"
+                                    initial="initial"
+                                />
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+
                 </div>
             </div>
         </>
