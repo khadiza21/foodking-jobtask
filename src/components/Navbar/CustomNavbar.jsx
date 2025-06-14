@@ -72,10 +72,144 @@ const CustomNavbar = () => {
                         <div className='mr-5 flex gap-4'>
 
 
-                            <Link className={`cursor-pointer flex items-center gap-1 transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`} to="/">HOME <ChevronDown className="w-4 h-4 font-bold" /></Link>
-                            <Link className={`cursor-pointer flex items-center gap-1 transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`} to="/">SHOP  <ChevronDown className="w-4 h-4 font-bold" /></Link>
-                            <Link className={`cursor-pointer flex items-center gap-1 transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`} to="/">PAGE  <ChevronDown className="w-4 h-4 font-bold" /></Link>
-                            <Link className={`cursor-pointer flex items-center gap-1 transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`} to="/">BLOG  <ChevronDown className="w-4 h-4 font-bold" /></Link>
+
+                            {/* HOME */}
+                            <div className="relative group">
+                                <Link
+                                    className={`cursor-pointer flex items-center gap-1 transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`}
+                                    to="/"
+                                >
+                                    HOME <ChevronDown className="w-4 h-4 font-bold transition-transform duration-300 group-hover:rotate-180" />
+                                </Link>
+
+                                <div className="absolute top-full left-0 mt-6 w-60 bg-white shadow-lg  opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50">
+                                    <Link to="/home/intro" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">Introduction</Link>
+                                    <Link to="/home/about" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">About Us</Link>
+
+
+                                    <div className="relative group/dropdown">
+                                        <Link
+                                            to="/home/mission"
+                                            className="flex justify-between items-center px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700"
+                                        >
+                                            Our Mission
+                                            <ChevronDown className="w-4 h-4" />
+                                        </Link>
+
+
+                                        <div className="absolute left-full top-0  w-56 bg-white shadow-lg opacity-0 group-hover/dropdown:opacity-100 invisible group-hover/dropdown:visible transition-all duration-300 z-50 ">
+                                            <Link to="/home/mission/vision" className="dorpdownList block px-5 py-3 text-slate-800 hover:text-white hover:bg-red-700">Our Vision</Link>
+                                            <Link to="/home/mission/team" className="dorpdownList block px-5 py-3 text-slate-800 hover:text-white hover:bg-red-700">Our Team</Link>
+                                            <Link to="/home/mission/goals" className="dorpdownList block px-5 py-3 text-slate-800 hover:text-white hover:bg-red-700">Our Goals</Link>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+
+
+                            {/* SHOP */}
+                            <div className="relative group">
+                                <Link
+                                    className={`cursor-pointer flex items-center gap-1 transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`}
+                                    to="/"
+                                >
+                                    SHOP <ChevronDown className="w-4 h-4 font-bold transition-transform duration-300 group-hover:rotate-180" />
+                                </Link>
+
+                                <div className="absolute top-full left-0 mt-6 w-60 bg-white shadow-lg  opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50">
+                                    <Link to="/home/intro" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">SHOP GRID</Link>
+                                    <Link to="/home/about" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">SHOP LIST</Link>
+                                    <Link to="/home/about" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">SHOP LEFT SIDEBAR</Link>
+                                    <Link to="/home/about" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">SHOP RIGHT SIDEBAR</Link>
+                                    <Link to="/home/about" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">SHOP SINGLE</Link>
+                                    <Link to="/home/about" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">SHOP CART</Link>
+                                    <Link to="/home/about" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">CHECKOUT</Link>
+
+                                </div>
+                            </div>
+
+
+                            {/* blogs */}
+                            <div className="relative group">
+                                <Link
+                                    className={`cursor-pointer flex items-center gap-1 transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`}
+                                    to="/"
+                                >
+                                    BLOGS <ChevronDown className="w-4 h-4 font-bold transition-transform duration-300 group-hover:rotate-180" />
+                                </Link>
+
+                                <div className="absolute top-full left-0 mt-6 w-60 bg-white shadow-lg  opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50">
+                                    <Link to="/home/intro" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">BLOGS</Link>
+                                    <Link to="/home/about" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">BLOGS DETAILS</Link>
+                                </div>
+                            </div>
+
+                            {/* pages */}
+                            <div className="relative group">
+                                <Link
+                                    className={`cursor-pointer flex items-center gap-1 transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`}
+                                    to="/"
+                                >
+                                    PAGES <ChevronDown className="w-4 h-4 font-bold transition-transform duration-300 group-hover:rotate-180" />
+                                </Link>
+
+                                <div className="absolute top-full left-0 mt-6 w-60 bg-white shadow-lg  opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-50">
+                                    <Link to="/home/intro" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">ABOUT US</Link>
+                                    <Link to="/home/about" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">GALLERY</Link>
+
+                                    <div className="relative group/dropdown">
+                                        <Link
+                                            to="/home/mission"
+                                            className="flex justify-between items-center px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700"
+                                        >
+                                            CHEF PAGE
+                                            <ChevronDown className="w-4 h-4" />
+                                        </Link>
+
+
+                                        <div className="absolute left-full top-0  w-56 bg-white shadow-lg opacity-0 group-hover/dropdown:opacity-100 invisible group-hover/dropdown:visible transition-all duration-300 z-50 ">
+                                            <Link to="/home/mission/vision" className="dorpdownList block px-5 py-3 text-slate-800 hover:text-white hover:bg-red-700">CHEF</Link>
+                                            <Link to="/home/mission/team" className="dorpdownList block px-5 py-3 text-slate-800 hover:text-white hover:bg-red-700">CHEF DETAILS</Link>
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <div className="relative group/dropdown">
+                                        <Link
+                                            to="/home/mission"
+                                            className="flex justify-between items-center px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700"
+                                        >
+                                            FOOD MENU
+                                            <ChevronDown className="w-4 h-4" />
+                                        </Link>
+
+
+                                        <div className="absolute left-full top-0  w-56 bg-white shadow-lg opacity-0 group-hover/dropdown:opacity-100 invisible group-hover/dropdown:visible transition-all duration-300 z-50 ">
+                                            <Link to="/home/mission/vision" className="dorpdownList block px-5 py-3 text-slate-800 hover:text-white hover:bg-red-700">FOOD MENU 01</Link>
+                                            <Link to="/home/mission/team" className="dorpdownList block px-5 py-3 text-slate-800 hover:text-white hover:bg-red-700">FOOD MENU 02</Link>
+
+                                        </div>
+                                    </div>
+
+                                    <Link to="/home/about" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">TESTIMONIALS</Link>
+                                    <Link to="/home/about" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">RESERVATION</Link>
+                                    <Link to="/home/about" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">FAQ's</Link>
+                                    <Link to="/home/about" className="dorpdownList block px-6 py-3 text-slate-800 hover:text-white hover:bg-red-700">404 PAGE</Link>
+
+
+
+                                </div>
+                            </div>
+
+
+                
                             <Link className={`cursor-pointer transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`} to="/">CONTACT</Link>
 
 
