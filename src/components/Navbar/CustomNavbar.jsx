@@ -4,6 +4,8 @@ import './CustomNavbar.css'
 import bgImage from '../../assets/hero-bg-3.jpg';
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import cartImg1 from '../../assets/s2.png'
+import cartImg2 from '../../assets/s3.png'
 import { Link } from 'react-router-dom';
 import { FaTruck, FaSearch, FaShoppingCart, FaBars } from 'react-icons/fa';
 import { ChevronDown } from 'lucide-react';
@@ -209,15 +211,73 @@ const CustomNavbar = () => {
                             </div>
 
 
-                
+
                             <Link className={`cursor-pointer transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`} to="/">CONTACT</Link>
 
 
 
 
                         </div>
-                        <FaShoppingCart className={`h-6 w-6 cursor-pointer ${isScrolledPastTop ? 'text-black' : 'text-white'}`} />
                         <FaSearch className={`h-6 w-6 cursor-pointer ${isScrolledPastTop ? 'text-black' : 'text-white'}`} />
+
+                        {/* cart */}
+                        <div className="relative group">
+                            <FaShoppingCart className="h-6 w-6 cursor-pointer transition-colors duration-300 text-white" />
+
+
+                            <div className="absolute left-[-40px] top-full mt-4 w-80 bg-white rounded shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 p-4 space-y-4">
+
+                              
+                                <div className="flex items-center justify-between border-b pb-3">
+                                    <div className="flex items-center gap-3">
+                                        <img src={cartImg1} alt="grilled" className="w-16 h-16 object-cover rounded" />
+                                        <div>
+                                            <h4 className="font-bold text-sm">GRILLED CHIKEN</h4>
+                                            <p className="text-sm font-semibold">$168</p>
+                                        </div>
+                                    </div>
+                                    <button>
+                                        <span className="text-white border bg-red-700 border-2 border-red-700 rounded-[50%] size-[24px] flex items-center justify-center text-xl font-bold">&times;</span>
+                                    </button>
+                                </div>
+
+                          
+                                <div className="flex items-center justify-between border-b pb-3">
+                                    <div className="flex items-center gap-3">
+                                        <img src={cartImg2} alt="grilled" className="w-16 h-16 object-cover rounded" />
+                                        <div>
+                                            <h4 className="font-bold text-sm">GRILLED CHIKEN</h4>
+                                            <p className="text-sm font-semibold">$168</p>
+                                        </div>
+                                    </div>
+                                    <button>
+                                        <span className="text-white border bg-red-700 border-2 border-red-700 rounded-[50%] size-[24px] flex items-center justify-center text-xl font-bold">&times;</span>
+                                    </button>
+                                </div>
+
+                               
+                                <div className="flex justify-between text-sm font-bold px-1">
+                                    <p>SHOPPING : $20.00</p>
+                                    <p>TOTAL : $168.00</p>
+                                </div>
+
+                             
+                                <div className="flex justify-between gap-3">
+                                    <button className="bg-green-600 text-white font-bold py-2 px-4 w-1/2 rounded hover:bg-green-700 transition-colors">VIEW CART</button>
+                                    <button className="bg-red-600 text-white font-bold py-2 px-4 w-1/2 rounded hover:bg-red-700 transition-colors">CHECKOUT</button>
+                                </div>
+
+
+
+
+
+
+                            </div>
+                        </div>
+
+
+
+
 
                         {
                             isScrolledPastTop ?
