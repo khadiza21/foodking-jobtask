@@ -50,46 +50,63 @@ const CustomNavbar = () => {
 
     return (
         <div
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform ${showNavbar ? 'translate-y-0' : '-translate-y-full'
+            className={` fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform ${showNavbar ? 'translate-y-0' : '-translate-y-full'
                 } ${isScrolledPastTop ? 'bg-white shadow-md' : 'bg-transparent'}`}
             style={{
                 backgroundImage: !isScrolledPastTop ? `url(${bgImage})` : 'none',
                 borderBottom: isScrolledPastTop ? '1px solid #ddd' : '1px solid #ffffff2b',
             }}
         >
-            <div className='flex items-center justify-between px-18 py-6'>
+            <div className='flex items-center justify-between px-18 py-6 navbarCom'>
                 <div className="navLogo">
                     <Link className="text-3xl font-bold flex items-center gap-2 text-black">
-                        <img src={navIcon1} alt="Logo" />
+                        <img src={`${isScrolledPastTop ? navIcon : navIcon1}`} alt="Logo" />
                         <span className={`font-bold text-3xl ${isScrolledPastTop ? 'text-black' : 'text-white'}`}>
                             FOODKING
                         </span>
                     </Link>
                 </div>
 
-                <div className="flex gap-5 items-center">
+                <div className="flex gap-5 items-center nav-list">
                     <div className='flex gap-6 items-center font-semibold larger-nav'>
                         <div className='mr-5 flex gap-4'>
-                            {['HOME', 'SHOP', 'PAGE', 'BLOG', 'CONTACT'].map((item, index) => (
-                                <Link
-                                    key={index}
-                                    to="/"
-                                    className={`cursor-pointer transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'
-                                        }`}
-                                >
-                                    {item}
-                                </Link>
-                            ))}
+
+
+                            <Link className={`cursor-pointer flex items-center gap-1 transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`} to="/">HOME <ChevronDown className="w-4 h-4 font-bold" /></Link>
+                            <Link className={`cursor-pointer flex items-center gap-1 transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`} to="/">SHOP  <ChevronDown className="w-4 h-4 font-bold" /></Link>
+                            <Link className={`cursor-pointer flex items-center gap-1 transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`} to="/">PAGE  <ChevronDown className="w-4 h-4 font-bold" /></Link>
+                            <Link className={`cursor-pointer flex items-center gap-1 transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`} to="/">BLOG  <ChevronDown className="w-4 h-4 font-bold" /></Link>
+                            <Link className={`cursor-pointer transition-colors duration-300 ${isScrolledPastTop ? 'text-black' : 'text-white'}`} to="/">CONTACT</Link>
+
+
+
+
                         </div>
                         <FaShoppingCart className={`h-6 w-6 cursor-pointer ${isScrolledPastTop ? 'text-black' : 'text-white'}`} />
                         <FaSearch className={`h-6 w-6 cursor-pointer ${isScrolledPastTop ? 'text-black' : 'text-white'}`} />
-                        <button className="relative overflow-hidden px-8 py-3 font-semibold text-black bg-white border border-red-500 group transition-colors duration-500">
-                            <div className='flex items-center justify-center gap-2'>
-                                <FaTruck className="h-6 w-6 text-dark DeliveryTruckIcon" />
-                                <span className="relative z-10 font-bold">ORDER NOW</span>
-                            </div>
-                            <span className="absolute inset-0 bg-green-800 scale-x-0 scale-y-0 group-hover:scale-100 transition-transform duration-500 ease-in-out origin-center opacity-100 z-0"></span>
-                        </button>
+
+                        {
+                            isScrolledPastTop ?
+
+
+                                <button className="relative overflow-hidden px-8 py-3 font-semibold text-black bg-red-800  group transition-colors duration-500 orderNowNavBtn">
+                                    <div className='flex items-center justify-center gap-2'>
+                                        <FaTruck className="h-6 w-6 text-dark DeliveryTruckIcon" />
+                                        <span className="relative z-10 font-bold ">ORDER NOW</span>
+                                    </div>
+                                    <span className="absolute inset-0 bg-green-800 scale-x-0 scale-y-0 group-hover:scale-100 transition-transform duration-500 ease-in-out origin-center opacity-100 z-0"></span>
+                                </button>
+                                :
+
+                                <button className="relative overflow-hidden px-8 py-3 font-semibold text-black bg-transparent
+ border border-yellow-500 group transition-colors duration-500">
+                                    <div className='flex items-center justify-center gap-2'>
+                                        <FaTruck className="h-6 w-6 text-dark DeliveryTruckIcon" />
+                                        <span className="relative z-10 font-bold">ORDER NOW</span>
+                                    </div>
+                                    <span className="absolute inset-0 bg-yellow-500 scale-x-0 scale-y-0 group-hover:scale-100 transition-transform duration-500 ease-in-out origin-center opacity-100 z-0"></span>
+                                </button>
+                        }
                     </div>
                     <FaBars className={`h-6 w-6 cursor-pointer ${isScrolledPastTop ? 'text-black' : 'text-white'}`} />
                 </div>

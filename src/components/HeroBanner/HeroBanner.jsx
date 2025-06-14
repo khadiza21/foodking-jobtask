@@ -59,7 +59,7 @@ const HeroBanner = () => {
     return (
         <>
 
-            <div style={{ backgroundImage: `url(${bgImage})` }}>
+            <div style={{ backgroundImage: `url(${bgImage})` }} className='py-38'>
 
 
                 <AnimatePresence mode="wait">
